@@ -22,12 +22,12 @@ export default function Projects() {
   const projects: Project[] = [
     {
       id: "project1",
-      title: "ポートフォリオサイト(このサイト)",
+      title: "ポートフォリオサイト",
       description: "Next.jsとTypeScriptで構築した個人ポートフォリオサイト。CSSモジュールを使用してスタイリング。",
-      imageUrl: "/placeholder.svg?height=300&width=500",
+      imageUrl: "/portfolio1.png",
       tags: ["Next.js", "TypeScript", "CSS Modules"],
-      githubUrl: "https://github.com/username/portfolio",
-      demoUrl: "https://portfolio.example.com",
+      githubUrl: "https://github.com/takapom/-Portfolio-site",
+      demoUrl: "/",
       featured: true,
     },
     {
@@ -36,7 +36,7 @@ export default function Projects() {
       description: "Next.jsを使用した就活管理アプリケーション。Firebaseでユーザーごとのデータ保存",
       imageUrl: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "TypeScript", "Firebase"],
-      githubUrl: "https://github.com/username/task-manager",
+      githubUrl: "https://github.com/takapom/internship-helper-app-public",
       featured: true,
     },
     {
@@ -45,7 +45,7 @@ export default function Projects() {
       description: "これまでの学習やインターンでの学びを記録するアウトプットを目的とした。",
       imageUrl: "/placeholder.svg?height=300&width=500",
       tags: ["JavaScript", "Next.js", "Firebase"],
-      githubUrl: "https://github.com/username/api-client",
+      githubUrl: "https://github.com/takapom/blog-site",
       demoUrl: "https://api-client.example.com",
       featured: false,
     },
@@ -55,7 +55,7 @@ export default function Projects() {
       description: "API連携の練習のため開発しました",
       imageUrl: "/placeholder.svg?height=300&width=500",
       tags: ["Next.js", "JavaScript", "Open Weather API"],
-      githubUrl: "https://github.com/username/blog-system",
+      githubUrl: "https://github.com/takapom/Weather-App",
       featured: true,
     },
     {
@@ -64,7 +64,7 @@ export default function Projects() {
         description: "API連携の練習のため開発しました",
         imageUrl: "/placeholder.svg?height=300&width=500",
         tags: ["Next.js", "JavaScript", "Open Weather API"],
-        githubUrl: "https://github.com/username/blog-system",
+        githubUrl: "https://github.com/takapom/Pokemon-library",
         featured: true,
       },
       {
@@ -73,7 +73,7 @@ export default function Projects() {
         description: "インターンのチーム開発での成果物です",
         imageUrl: "/placeholder.svg?height=300&width=500",
         tags: ["React", "JavaScript", "Material UI"],
-        githubUrl: "https://github.com/username/blog-system",
+        githubUrl: "https://github.com/takapom/intern-team",
         featured: true,
       },
       
@@ -106,7 +106,7 @@ export default function Projects() {
           <div key={project.id} className={styles.projectCard}>
             <div className={styles.projectImageContainer}>
               <Image
-                src={project.imageUrl || "/placeholder.svg"}
+                src={project.imageUrl || "/portfolio.png"}
                 alt={project.title}
                 width={500}
                 height={300}

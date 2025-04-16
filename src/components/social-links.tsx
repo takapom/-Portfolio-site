@@ -36,13 +36,13 @@ export default function SocialLinks() {
       name: "Zenn",
       icon: "📝",
       color: "#3EA8FF",
-      url: "#",
+      url: "https://zenn.dev/kazukix/articles/react-setup-2024",
     },
     {
       name: "Qiita",
       icon: "📚",
       color: "#55C500",
-      url: "#",
+      url: "https://qiita.com/",
     },
   ]
 

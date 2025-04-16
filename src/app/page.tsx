@@ -4,9 +4,11 @@ import SocialLinks from "@/components/social-links"
 import AboutMe from "@/components/about-me"
 import Projects from "@/components/project"
 import TechStack from "@/components/tech-stack"
+import Footer from "@/components/Footer"
 
 export default function Home() {
   return (
+    <div>
     <main className={styles.main}>
       <div className={styles.container}>
         <header className={styles.header}>
@@ -32,11 +34,12 @@ export default function Home() {
         </header>
 
         <SocialLinks />
-
         <AboutMe />
         <TechStack />
         <Projects />
       </div>
     </main>
+    <Footer />
+    </div>
   )
 }
