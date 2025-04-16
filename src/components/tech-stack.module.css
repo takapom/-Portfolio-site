@@ -1,0 +1,259 @@
+.techStackContainer {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-top: 2rem;
+    backdrop-filter: blur(5px);
+    position: relative;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .sectionDivider {
+    height: 4px;
+    width: 100%;
+    margin: 0.5rem 0 1.5rem;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.5) 25%,
+      transparent 25%,
+      transparent 100%
+    );
+    background-size: 8px 4px;
+  }
+  
+  .categoryNav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .categoryButton {
+    background-color: rgba(30, 30, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+  }
+  
+  .categoryButton:hover {
+    background-color: rgba(60, 60, 60, 0.7);
+    transform: translateY(-2px);
+  }
+  
+  .categoryButton.active {
+    background: linear-gradient(135deg, rgba(80, 80, 80, 0.7), rgba(40, 40, 40, 0.7));
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .techGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+  
+  .techItem {
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .techItem:hover {
+    transform: translateY(-3px);
+    background-color: rgba(30, 30, 30, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .techItem.activeTech {
+    background: linear-gradient(135deg, rgba(40, 40, 40, 0.9), rgba(20, 20, 20, 0.9));
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .techIcon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .techInfo {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .techName {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .proficiencyBar {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+  }
+  
+  .proficiencyLevel {
+    width: 8px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  
+  .proficiencyLevel.filled {
+    background: linear-gradient(90deg, #3ea8ff, #6eb5ff);
+  }
+  
+  .techDetails {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .techDetailsContent {
+    max-width: 80%;
+    text-align: center;
+  }
+  
+  .techDetailsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .techDetailsIcon {
+    font-size: 3rem;
+  }
+  
+  .techDetailsName {
+    font-size: 2rem;
+    margin: 0;
+    background: linear-gradient(90deg, #fff, #6eb5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .techDetailsDescription {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .techDetailsProficiency {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .techDetailsProficiencyLabel {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .techDetailsProficiencyBar {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .techDetailsProficiencyLevel {
+    width: 30px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .techDetailsProficiencyLevel.filled {
+    background: linear-gradient(90deg, #3ea8ff, #6eb5ff);
+    box-shadow: 0 0 10px rgba(62, 168, 255, 0.5);
+  }
+  
+  .techDetailsProficiencyText {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 0.5rem;
+  }
+  
+  .techDetailsClose {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .techDetailsClose:hover {
+    color: #fff;
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 768px) {
+    .categoryNav {
+      justify-content: center;
+    }
+    
+    .techGrid {
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+    
+    .techDetailsContent {
+      max-width: 90%;
+    }
+    
+    .techDetailsName {
+      font-size: 1.5rem;
+    }
+    
+    .techDetailsDescription {
+      font-size: 1rem;
+    }
+  }
+  
+  

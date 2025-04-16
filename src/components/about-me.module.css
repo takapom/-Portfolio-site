@@ -1,0 +1,76 @@
+.aboutMeContainer {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    padding: 2rem;
+    backdrop-filter: blur(5px);
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .sectionDivider {
+    height: 4px;
+    width: 100%;
+    margin: 0.5rem 0 1.5rem;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.5) 0%,
+      rgba(255, 255, 255, 0.5) 25%,
+      transparent 25%,
+      transparent 100%
+    );
+    background-size: 8px 4px;
+  }
+  
+  .section {
+    margin-bottom: 2rem;
+  }
+  
+  .section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .categoryTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.3rem;
+    margin: 0 0 1rem;
+    font-weight: 500;
+  }
+  
+  .categoryIcon {
+    font-size: 1.5rem;
+  }
+  
+  .list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .listItem {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .listItem:last-child {
+    margin-bottom: 0;
+  }
+  
+  .listItem::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .paragraph {
+    margin: 0 0 0.5rem;
+    line-height: 1.6;
+  }
+  
