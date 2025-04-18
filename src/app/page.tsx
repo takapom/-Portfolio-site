@@ -5,6 +5,7 @@ import AboutMe from "@/components/about-me"
 import Projects from "@/components/project"
 import TechStack from "@/components/tech-stack"
 import Footer from "@/components/Footer"
+import Future from "@/components/future"
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
         <AboutMe />
         <TechStack />
         <Projects />
+        <Future />
       </div>
     </main>
     <Footer />
