@@ -71,7 +71,7 @@ export default function Projects() {
         id: "project6",
         title: "物件情報入力アプリ（マイソク）",
         description: "インターンのチーム開発での成果物です",
-        imageUrl: "/placeholder.svg?height=300&width=500",
+        imageUrl: "/intern-site.png",
         tags: ["React", "JavaScript", "Material UI"],
         githubUrl: "https://github.com/takapom/intern-team",
         featured: true,

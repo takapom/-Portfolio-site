@@ -4,7 +4,7 @@ export default function AboutMe() {
   const affiliations = [
     "大和大学 学士3年 情報系・情報学部・情報学科",
     "Tech Uni",
-    "Sky株式会社",
+    "ONE CAREER",
   ]
 
   const interests = [
@@ -40,8 +40,6 @@ export default function AboutMe() {
         <h3 className={styles.categoryTitle}>
           <span className={styles.categoryIcon}>🎮</span> 趣味
         </h3>
-        {/* <p className={styles.paragraph}>{interests[0]}</p>
-        <p className={styles.paragraph}>{interests[1]}</p> */}
         <ul className={styles.list}>
           {interests.slice(2).map((interest, index) => (
             <li key={index} className={styles.listItem}>
