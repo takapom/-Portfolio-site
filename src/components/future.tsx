@@ -35,6 +35,12 @@ const futureItems = [
     description: "アプリを開発し、学生の間に1円でも収益を上げる経験をする",
     icon: "💰",
   },
+  {
+    id: 6,
+    title: "大富豪",
+    description: "お金持ちになって最強の男になる",
+    icon: "👨",
+  },
 ]
 
 export default function Future() {
@@ -46,7 +52,7 @@ export default function Future() {
         <h2 className={styles.title}>
           Future Vision<span className={styles.titleAccent}>.</span>
         </h2>
-        <p className={styles.subtitle}>今後挑戦していきたいこと</p>
+        <p className={styles.subtitle}>今後挑戦していきたいこと・なりたい人物像</p>
 
         <div className={styles.itemsGrid}>
           {futureItems.map((item) => (

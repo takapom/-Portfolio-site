@@ -4,21 +4,21 @@ export default function SocialLinks() {
   const socialLinks = [
     {
       name: "Twitter(X)",
-      handle: "@__cp20__",
+      handle: "@takapom_engin",
       icon: "🐦",
       color: "#1DA1F2",
       url: "https://x.com/takapom_engin",
     },
     {
       name: "instagram",
-      handle: "@cp20",
+      handle: "@takapondes",
       icon: "🔶",
       color: "#FF8C00",
       url: "https://www.instagram.com/takapondes/",
     },
     {
       name: "GitHub",
-      handle: "@cp-20",
+      handle: "@takapom",
       icon: "🐙",
       color: "#FFFFFF",
       url: "https://github.com/takapom?tab=repositories",
