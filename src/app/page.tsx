@@ -6,6 +6,7 @@ import Projects from "@/components/project"
 import TechStack from "@/components/tech-stack"
 import Footer from "@/components/Footer"
 import Future from "@/components/future"
+import Internship from "@/components/Internship"
 
 export default function Home() {
   return (
@@ -37,6 +38,7 @@ export default function Home() {
         <SocialLinks />
         <AboutMe />
         <TechStack />
+        <Internship />
         <Projects />
         <Future />
       </div>

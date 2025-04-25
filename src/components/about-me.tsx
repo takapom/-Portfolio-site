@@ -5,6 +5,7 @@ export default function AboutMe() {
     "大和大学 学士3年 情報系・情報学部・情報学科",
     "Tech Uni",
     "ONE CAREER",
+    "Omluc",
   ]
 
   const interests = [

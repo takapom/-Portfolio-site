@@ -232,7 +232,7 @@ export default function TechStack() {
       icon: "🐍",
       proficiency: 4,
       category: "languages",
-      description: "データ分析や自動化スクリプトに使用",
+      description: "Djangoでバックエンド開発に使用",
     },
     {
       name: "TypeScript",
@@ -253,7 +253,7 @@ export default function TechStack() {
       icon: "☕",
       proficiency: 2,
       category: "languages",
-      description: "バックエンド開発やAndroidアプリ開発に使用",
+      description: "バックエンド開発とインターンでの使用経験",
     },
 
     // フロントエンド
@@ -290,7 +290,7 @@ export default function TechStack() {
       icon: "▲",
       proficiency: 3,
       category: "frontend",
-      description: "Reactベースのフルスタックフレームワーク",
+      description: "個人開発とインターンでの使用",
     },
 
     // バックエンド
