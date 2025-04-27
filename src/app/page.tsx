@@ -15,7 +15,7 @@ export default function Home() {
       <div className={styles.container}>
         <header className={styles.header}>
           <div className={styles.titleContainer}>
-            <h1 className={styles.title}>たかぽん</h1>
+            <h1 className={styles.title}>Yuki Takagi</h1>
             <p className={styles.subtitle}>Student Engineer</p>
           </div>
           <div className={styles.profileImageContainer}>

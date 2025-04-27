@@ -2,7 +2,7 @@ import styles from "./about-me.module.css"
 
 export default function AboutMe() {
   const affiliations = [
-    "大和大学 学士3年 情報系・情報学部・情報学科",
+    "大和大学 3年 情報学部",
     "Tech Uni",
     "ONE CAREER",
     "Omluc",
