@@ -80,7 +80,7 @@ export default function Projects() {
         id: "project7",
         title: "トレーニング機器予約システム",
         description: "トレーニング機器を予約するためのシステムを開発中",
-        imageUrl: "/",
+        imageUrl: "/gim.png",
         tags: ["React", "JavaScript", "Material UI"],
         githubUrl: "https://github.com/takapom/Training-Reservation-App",
         featured: true,
