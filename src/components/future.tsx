@@ -24,7 +24,7 @@ const futureItems = [
     icon: "📱",
   },
   {
-    id: 4,
+    id: 6,
     title: "パフォーマンスチューニングへの挑戦",
     description: "アプリケーションのパフォーマンスを最適化し、ユーザー体験を向上させる",
     icon: "🤖",
@@ -36,10 +36,10 @@ const futureItems = [
     icon: "💰",
   },
   {
-    id: 6,
-    title: "大富豪",
-    description: "お金持ちになって最強の男になる",
-    icon: "👨",
+    id: 4,
+    title: "環境を作る",
+    description: "人との繋がりを大切にし、エンジニア仲間を多く作る",
+    icon: "👦",
   },
 ]
 

@@ -32,6 +32,12 @@ export default function Internship() {
         period: 'Spring 2025',
         description: '不動産業界のマイソクアプリ開発',
       },
+      {
+        company: 'GA technologies ,',
+        slug: 'futuretech',
+        period: 'Summer 2025',
+        description: 'ユーザードリブンとRuby on Rails',
+      },
   ];
 
   return (
