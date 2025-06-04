@@ -30,13 +30,13 @@ export default function SocialLinks() {
       name: "My-blog",
       icon: "🎮",
       color: "#5865F2",
-      url: "https://blog-site-ehel.vercel.app/",
+      url: "https://blog-front-red.vercel.app/",
     },
     {
       name: "Zenn",
       icon: "📝",
       color: "#3EA8FF",
-      url: "https://zenn.dev/kazukix/articles/react-setup-2024",
+      url: "https://zenn.dev/takapom",
     },
     {
       name: "Qiita",
