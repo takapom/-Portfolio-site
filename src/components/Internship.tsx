@@ -19,6 +19,30 @@ export default function Internship() {
       slug: 'innovatex',
       period: 'Summer 2025',
       description: 'GoとReactでの既存システムのパフォーマンスチューニング',
+    },    
+    {
+      company: 'GMOインターネット.',
+      slug: 'innovatex',
+      period: 'Summer 2025',
+      description: 'Webアプリ開発',
+    },
+    {
+        company: 'GA technologies ,',
+        slug: 'futuretech',
+        period: 'Summer 2025',
+        description: 'ユーザードリブンとRuby on Rails',
+    },
+    {
+        company: 'ラクス ,',
+        slug: 'futuretech',
+        period: 'Summer 2025',
+        description: 'Vue.jsとnode.jsのチーム開発',
+    },
+    {
+        company: 'Sky ,',
+        slug: 'futuretech',
+        period: 'Summer 2025',
+        description: 'Skyスタイル部に所属',
     },
     {
       company: 'ZYXX inc,',
@@ -33,10 +57,16 @@ export default function Internship() {
         description: '不動産業界のマイソクアプリ開発',
       },
       {
-        company: 'GA technologies ,',
+        company: 'スリーシェイク ,',
         slug: 'futuretech',
         period: 'Summer 2025',
-        description: 'ユーザードリブンとRuby on Rails',
+        description: 'SREのハンズオンとキャッチアップ',
+      },
+      {
+        company: 'スタンバイ ,',
+        slug: 'futuretech',
+        period: 'Summer 2025',
+        description: '課題解決チーム開発',
       },
   ];
 
