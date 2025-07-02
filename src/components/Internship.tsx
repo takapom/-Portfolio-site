@@ -72,7 +72,7 @@ export default function Internship() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Internships</h1>
+      <h1 className={styles.title}>Intern Experience</h1>
       <div className={styles.grid}>
         {internships.map((internship, index) => (
           <div
@@ -84,7 +84,7 @@ export default function Internship() {
               <h2 className={styles.company}>{internship.company}</h2>
               <p className={styles.period}>{internship.period}</p>
               <p className={styles.description}>{internship.description}</p>
-              <span className={styles.linkText}>Check</span>
+              <span className={styles.linkText}>詳細を見る</span>
             </div>
           </div>
         ))}
