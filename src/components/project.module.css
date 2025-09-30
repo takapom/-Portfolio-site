@@ -310,44 +310,39 @@
 }
 
 @media (max-width: 768px) {
+  .projectsContainer {
+    gap: 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
   .filterContainer {
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
   
   .filterButton {
-    padding: 0.625rem 1.5rem;
-    font-size: 0.875rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.8125rem;
   }
   
   .projectsGrid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   
   .projectCard {
-    border-radius: 18px;
+    border-radius: 16px;
   }
   
   .projectImageContainer {
-    height: 220px;
+    height: 200px;
   }
   
-  .projectContent {
-    padding: 1.5rem;
-  }
-  
-  .projectTitle {
-    font-size: 1.25rem;
-  }
-  
-  .projectDescription {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 480px) {
   .projectContent {
     padding: 1.25rem;
+    gap: 1rem;
   }
   
   .projectTitle {
@@ -357,17 +352,73 @@
   .projectDescription {
     font-size: 0.875rem;
   }
+
+  .techDetails {
+    padding: 0.875rem;
+  }
+
+  .techDetailsTitle,
+  .tagsTitle {
+    font-size: 0.8125rem;
+  }
+
+  .techDetailsText {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .filterButton {
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .projectsGrid {
+    gap: 1rem;
+  }
+
+  .projectContent {
+    padding: 1rem;
+    gap: 0.875rem;
+  }
+  
+  .projectTitle {
+    font-size: 1.05rem;
+  }
+  
+  .projectDescription {
+    font-size: 0.8125rem;
+    line-height: 1.6;
+  }
   
   .projectImageContainer {
-    height: 200px;
+    height: 180px;
+  }
+
+  .techDetails {
+    padding: 0.75rem;
+  }
+
+  .techDetailsTitle,
+  .tagsTitle {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .techDetailsText {
+    font-size: 0.75rem;
   }
   
   .tagsList {
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   
   .projectTag {
-    font-size: 0.75rem;
-    padding: 0.4rem 0.875rem;
+    font-size: 0.7rem;
+    padding: 0.35rem 0.75rem;
   }
 }

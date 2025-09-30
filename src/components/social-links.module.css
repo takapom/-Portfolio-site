@@ -213,11 +213,53 @@
 
 /* レスポンシブデザイン */
 @media (max-width: 640px) {
+  .socialLinksContainer {
+    gap: 1rem;
+  }
+
+  .socialLinks {
+    gap: 0.5rem;
+  }
+
+  .socialLink {
+    padding: 1rem 1.25rem;
+  }
+
+  .socialLinkName {
+    font-size: 0.95rem;
+  }
+
+  .socialLinkHandle {
+    font-size: 0.825rem;
+  }
+
+  .socialLinkIcon {
+    font-size: 1.5rem;
+  }
+
+  .socialLinkIcon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
   .platformLinks {
-    flex-direction: column;
+    gap: 0.5rem;
   }
   
   .platformLink {
-    width: 100%;
+    padding: 0.75rem 1rem;
+  }
+
+  .platformIcon {
+    font-size: 1.15rem;
+  }
+
+  .platformIcon svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .platformName {
+    font-size: 0.875rem;
   }
 }

@@ -167,43 +167,83 @@
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
+  .futureSection {
+    gap: 1.25rem;
+  }
+
   .title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
   }
 
   .itemsGrid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 1rem;
   }
   
-  .item {
-    padding: 1.75rem;
-  }
-  
-  .iconWrapper {
-    width: 56px;
-    height: 56px;
-  }
-  
-  .icon {
-    font-size: 1.75rem;
-  }
-}
-
-@media (max-width: 480px) {
   .item {
     padding: 1.5rem;
   }
   
+  .iconWrapper {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .icon {
+    font-size: 1.65rem;
+  }
+
   .itemTitle {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .itemDescription {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+
+  .itemsGrid {
+    gap: 0.875rem;
+  }
+
+  .item {
+    padding: 1.25rem;
+  }
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  .icon {
+    font-size: 1.5rem;
+  }
+  
+  .itemTitle {
+    font-size: 1.05rem;
+    margin-bottom: 0.625rem;
   }
   
   .itemDescription {
-    font-size: 0.9rem;
+    font-size: 0.8125rem;
+    line-height: 1.6;
   }
 }

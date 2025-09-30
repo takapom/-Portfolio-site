@@ -128,15 +128,29 @@
 
 /* レスポンシブデザイン */
 @media (max-width: 640px) {
+  .aboutMeContainer {
+    gap: 1.25rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
   .section {
-    padding: 1rem;
+    padding: 0.875rem;
+    margin-bottom: 1rem;
   }
   
   .categoryTitle {
-    font-size: 1.15rem;
+    font-size: 1rem;
+    margin-bottom: 0.875rem;
   }
   
   .categoryIcon {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
+  }
+
+  .listItem {
+    font-size: 0.875rem;
   }
 }
