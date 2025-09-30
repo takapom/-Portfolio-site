@@ -1,31 +1,12 @@
 .container {
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-  color: white;
-  min-height: 100vh;
-  padding: 2rem 1rem;
-  width: 100%;
-  position: relative;
-  overflow-x: hidden;
-}
-
-.container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(120, 80, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(255, 80, 120, 0.05) 0%, transparent 50%);
-  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 4rem;
-  position: relative;
-  z-index: 1;
+  margin-bottom: 1rem;
 }
 
 .title {
@@ -37,28 +18,28 @@
 }
 
 .titleMain {
-  font-size: 3rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%);
+  font-size: clamp(2.25rem, 5vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #f8fafc 0%, #c7d2fe 50%, #a5b4fc 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: shimmer 3s linear infinite;
+  animation: shimmer 4s linear infinite;
   letter-spacing: -0.02em;
 }
 
 .titleSub {
-  font-size: 1.5rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
-  letter-spacing: 0.1em;
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -77,7 +58,7 @@
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .timeline::before {
@@ -90,57 +71,63 @@
   height: 100%;
   background: linear-gradient(180deg, 
     transparent 0%, 
-    rgba(102, 126, 234, 0.3) 10%, 
-    rgba(102, 126, 234, 0.3) 90%, 
+    rgba(96, 165, 250, 0.4) 10%, 
+    rgba(96, 165, 250, 0.4) 90%, 
     transparent 100%);
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
 }
 
 .timelineItem {
   position: relative;
   width: 50%;
-  padding: 2rem;
+  padding: 1.5rem;
   box-sizing: border-box;
 }
 
 .timelineItem.left {
   left: 0;
-  padding-right: 3rem;
+  padding-right: 2.5rem;
 }
 
 .timelineItem.right {
   left: 50%;
-  padding-left: 3rem;
+  padding-left: 2.5rem;
 }
 
 .timelineDot {
   position: absolute;
-  top: 3rem;
-  width: 16px;
-  height: 16px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  top: 2.5rem;
+  width: 18px;
+  height: 18px;
+  background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
   border-radius: 50%;
   z-index: 2;
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+  box-shadow: 
+    0 0 20px rgba(96, 165, 250, 0.6),
+    0 0 40px rgba(96, 165, 250, 0.3);
+  border: 3px solid var(--color-bg-primary);
 }
 
 .timelineItem.left .timelineDot {
-  right: -8px;
+  right: -9px;
 }
 
 .timelineItem.right .timelineDot {
-  left: -8px;
+  left: -9px;
 }
 
 .card {
-  background: rgba(25, 25, 35, 0.8);
-  backdrop-filter: blur(10px);
+  background: rgba(30, 41, 59, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 2rem;
+  padding: 1.75rem;
   cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
 .card::before {
@@ -150,20 +137,20 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, 
-    transparent 0%, 
-    rgba(102, 126, 234, 0.05) 50%, 
-    transparent 100%);
+  background: radial-gradient(circle at top left, 
+    rgba(96, 165, 250, 0.15) 0%, 
+    transparent 60%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px) scale(1.02);
+  transform: translateY(-10px) scale(1.02);
   box-shadow: 
-    0 20px 40px rgba(102, 126, 234, 0.3),
-    0 10px 20px rgba(0, 0, 0, 0.2);
-  border-color: rgba(102, 126, 234, 0.5);
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 80px rgba(96, 165, 250, 0.25);
+  border-color: rgba(96, 165, 250, 0.3);
+  background: rgba(30, 41, 59, 0.35);
 }
 
 .card:hover::before {
@@ -173,15 +160,16 @@
 .cardHeader {
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
 }
 
 .company {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
   margin-bottom: 0.75rem;
-  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #c7d2fe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -192,8 +180,8 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(102, 126, 234, 0.1);
-  border: 1px solid rgba(102, 126, 234, 0.3);
+  background: rgba(96, 165, 250, 0.15);
+  border: 1px solid rgba(96, 165, 250, 0.3);
   border-radius: 50px;
   transition: all 0.3s ease;
 }
@@ -201,37 +189,39 @@
 .calendarIcon {
   width: 16px;
   height: 16px;
-  color: rgba(102, 126, 234, 0.8);
+  color: var(--color-accent-primary);
 }
 
 .period {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
   font-weight: 500;
 }
 
 .cardBody {
   margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .description {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-text-secondary);
   margin-bottom: 1.5rem;
 }
 
 .technologies {
-  margin-top: 1.5rem;
+  margin-top: 1.25rem;
 }
 
 .techTitle {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-accent-primary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .techTags {
@@ -242,25 +232,29 @@
 
 .techTag {
   display: inline-block;
-  padding: 0.4rem 0.8rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
-  border: 1px solid rgba(102, 126, 234, 0.3);
-  border-radius: 20px;
-  font-size: 0.85rem;
+  padding: 0.4rem 0.875rem;
+  background: rgba(96, 165, 250, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(96, 165, 250, 0.25);
+  border-radius: 12px;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  transition: all 0.3s ease;
+  color: var(--color-text-primary);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .techTag:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+  background: rgba(96, 165, 250, 0.3);
+  border-color: rgba(96, 165, 250, 0.4);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.2);
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
 }
 
 .cardFooter {
   display: flex;
   justify-content: flex-end;
+  position: relative;
+  z-index: 1;
 }
 
 .detailButton {
@@ -268,21 +262,21 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-accent-primary) 0%, var(--color-accent-secondary) 100%);
   color: white;
   border: none;
   border-radius: 12px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
 }
 
 .detailButton:hover {
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-  transform: translateX(4px);
-  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, var(--color-accent-secondary) 0%, var(--color-accent-primary) 100%);
+  transform: translateX(6px);
+  box-shadow: 0 6px 24px rgba(96, 165, 250, 0.5);
 }
 
 .arrowIcon {
@@ -297,12 +291,12 @@
 
 @media (max-width: 768px) {
   .timeline::before {
-    left: 2rem;
+    left: 1.5rem;
   }
 
   .timelineItem {
     width: 100%;
-    padding-left: 4rem;
+    padding-left: 3.5rem;
     padding-right: 1rem;
   }
 
@@ -312,7 +306,7 @@
   }
 
   .timelineDot {
-    left: 24px !important;
+    left: 15px !important;
     right: auto !important;
   }
 
@@ -321,11 +315,11 @@
   }
 
   .titleSub {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .company {
-    font-size: 1.4rem;
+    font-size: 1.25rem;
   }
 
   .card {
@@ -337,22 +331,14 @@
   }
 
   .techTag {
-    padding: 0.3rem 0.6rem;
-    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 1.5rem 0.5rem;
-  }
-
-  .timeline {
-    padding: 1rem 0;
-  }
-
   .timelineItem {
-    padding: 1rem 1rem 1rem 3rem;
+    padding: 1rem 1rem 1rem 2.5rem;
   }
 
   .titleMain {
@@ -360,15 +346,15 @@
   }
 
   .company {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
   }
 
   .description {
-    font-size: 0.95rem;
+    font-size: 0.925rem;
   }
 
   .detailButton {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
   }
 }

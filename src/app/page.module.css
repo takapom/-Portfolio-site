@@ -1,88 +1,589 @@
+/* メインコンテナ */
 .main {
-  min-height: 100vh;
-  background-image: url("/placeholder.svg?height=1080&width=1920");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 2rem;
+  min-height: 100dvh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  color: white;
+  justify-content: center;
+  padding-top: clamp(1.5rem, 3vw, 2rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
+  padding-left: clamp(1.25rem, 5vw, 3rem);
+  padding-right: clamp(1.25rem, 5vw, 3rem);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 
+/* 動的な光のエフェクト */
+.main::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    rgba(96, 165, 250, 0.3),
+    rgba(129, 140, 248, 0.3),
+    rgba(167, 139, 250, 0.3),
+    rgba(96, 165, 250, 0.3)
+  );
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  z-index: -1;
+  animation: rotateGlow 30s linear infinite;
+}
+
+/* グラスモーフィズムコンテナ */
 .container {
-  width: 100%;
-  max-width: 800px;
+  width: min(1200px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem);
+  
+  /* グラスモーフィズム効果 */
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+    0 50px 100px -20px rgba(96, 165, 250, 0.2);
+  
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
 }
 
+/* 内側の光のエフェクト */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 200px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(96, 165, 250, 0.15),
+    transparent 70%
+  );
+  filter: blur(30px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ボトムグロウ */
+.container::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 200px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(129, 140, 248, 0.2),
+    transparent 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ヘッダーセクション */
 .header {
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 8px;
-  padding: 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  backdrop-filter: blur(5px);
+  gap: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2.5rem, 4vw, 4rem);
+  
+  /* グラスモーフィズム */
+  background: rgba(30, 41, 59, 0.3);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+  
+  overflow: hidden;
+  z-index: 1;
+  
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.header:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 20px 40px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+    0 0 80px rgba(96, 165, 250, 0.3);
+}
+
+/* ヘッダーの光エフェクト */
+.header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(96, 165, 250, 0.1) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.header:hover::before {
+  opacity: 1;
+  animation: shimmer 2s ease-in-out;
+}
+
+/* タイトルコンテナ */
 .titleContainer {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
+  z-index: 1;
 }
 
+/* タイトル */
 .title {
-  font-size: 3rem;
   margin: 0;
-  font-weight: bold;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  
+  background: linear-gradient(
+    135deg,
+    #f8fafc 0%,
+    #e0e7ff 25%,
+    #c7d2fe 50%,
+    #a5b4fc 75%,
+    #818cf8 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  animation: titleGradient 8s ease infinite;
+  background-size: 200% auto;
+  
+  text-shadow: 0 0 40px rgba(96, 165, 250, 0.3);
 }
 
+/* サブタイトル */
 .subtitle {
-  font-size: 1.2rem;
   margin: 0;
-  opacity: 0.8;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(203, 213, 225, 0.9);
+  
+  position: relative;
+  padding-left: 1.5rem;
 }
 
+.subtitle::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 60%;
+  background: linear-gradient(180deg, #60a5fa, #818cf8);
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+}
+
+/* プロフィール画像コンテナ */
 .profileImageContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  border-radius: 50%;
+  
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.3),
+    rgba(129, 140, 248, 0.25),
+    rgba(167, 139, 250, 0.3)
+  );
+  
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    0 20px 60px -15px rgba(96, 165, 250, 0.4),
+    0 0 80px rgba(129, 140, 248, 0.3);
+  
+  z-index: 1;
+  
+  animation: floatImage 6s ease-in-out infinite;
+  
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.profileImageContainer:hover {
+  transform: scale(1.05) rotate(5deg);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    0 30px 80px -20px rgba(96, 165, 250, 0.6),
+    0 0 120px rgba(129, 140, 248, 0.5);
+}
+
+/* プロフィール画像の光沢 */
+.profileImageContainer::after {
+  content: "";
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 255, 255, 0.4),
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* プロフィール画像 */
 .profileImage {
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid rgba(255, 255, 255, 0.2);
+  width: clamp(180px, 20vw, 240px);
+  height: clamp(180px, 20vw, 240px);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 20px 50px -20px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.profileImageContainer:hover .profileImage {
+  transform: scale(1.02);
+}
+
+/* 画像クレジット */
 .imageCredit {
-  font-size: 0.8rem;
-  margin: 0;
-  opacity: 0.7;
+  margin: clamp(1rem, 1.5vw, 1.5rem) 0 0;
+  font-size: 0.875rem;
+  color: rgba(203, 213, 225, 0.7);
+  text-align: center;
 }
 
 .creditLink {
-  color: #6eb5ff;
+  color: rgba(96, 165, 250, 0.9);
   text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.creditLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #60a5fa, #818cf8);
+  transition: width 0.3s ease;
 }
 
 .creditLink:hover {
-  text-decoration: underline;
+  color: #60a5fa;
+  text-decoration: none;
 }
 
-@media (max-width: 768px) {
+.creditLink:hover::after {
+  width: 100%;
+}
+
+/* セクションスタック */
+.sectionStack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+/* 横並びグループ */
+.horizontalGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+/* セクションカード */
+.sectionCard {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: 28px;
+  
+  /* グラスモーフィズム */
+  background: rgba(30, 41, 59, 0.25);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  overflow: hidden;
+}
+
+/* フル幅セクションカード */
+.sectionCardFull {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3.5rem);
+  border-radius: 28px;
+  
+  /* グラスモーフィズム */
+  background: rgba(30, 41, 59, 0.25);
+  backdrop-filter: blur(30px) saturate(160%);
+  -webkit-backdrop-filter: blur(30px) saturate(160%);
+  
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+  
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  overflow: hidden;
+}
+
+.sectionCard::before,
+.sectionCardFull::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(96, 165, 250, 0.5),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.sectionCard:hover,
+.sectionCardFull:hover {
+  transform: translateY(-8px) scale(1.01);
+  
+  background: rgba(30, 41, 59, 0.35);
+  
+  border-color: rgba(96, 165, 250, 0.3);
+  
+  box-shadow:
+    0 20px 60px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+    0 0 100px rgba(96, 165, 250, 0.2);
+}
+
+.sectionCard:hover::before,
+.sectionCardFull:hover::before {
+  opacity: 1;
+}
+
+/* カードの光エフェクト */
+.sectionCard::after,
+.sectionCardFull::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.sectionCard:hover::after,
+.sectionCardFull:hover::after {
+  opacity: 1;
+  animation: cardGlow 3s ease-in-out infinite;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 960px) {
   .header {
-    flex-direction: column;
-    gap: 2rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: clamp(2rem, 6vw, 3rem);
   }
 
+  .titleContainer {
+    align-items: center;
+  }
+
+  .subtitle {
+    padding-left: 0;
+    letter-spacing: 0.15em;
+  }
+
+  .subtitle::before {
+    display: none;
+  }
+
+  .profileImageContainer {
+    justify-self: center;
+  }
+
+  .horizontalGroup {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .main {
+    padding-top: clamp(1rem, 4vw, 1.5rem);
+    padding-bottom: clamp(2rem, 6vw, 3rem);
+    padding-left: clamp(1rem, 6vw, 2rem);
+    padding-right: clamp(1rem, 6vw, 2rem);
+  }
+
+  .container {
+    padding: clamp(2.5rem, 7vw, 4rem) clamp(1.5rem, 6vw, 3rem);
+    border-radius: 32px;
+    gap: clamp(2rem, 6vw, 3rem);
+  }
+
+  .header {
+    padding: clamp(2rem, 6vw, 3rem);
+    border-radius: 24px;
+  }
+
+  .profileImage {
+    width: clamp(150px, 40vw, 200px);
+    height: clamp(150px, 40vw, 200px);
+  }
+
+  .sectionCard {
+    padding: clamp(1.5rem, 6vw, 2.5rem);
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 480px) {
   .title {
-    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+
+  .subtitle {
+    font-size: clamp(0.95rem, 3vw, 1.2rem);
+    letter-spacing: 0.12em;
+  }
+
+  .container {
+    gap: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  .sectionCard {
+    border-radius: 20px;
+  }
+}
+
+/* アニメーション */
+@keyframes rotateGlow {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes titleGradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(3deg);
+  }
+}
+
+@keyframes cardGlow {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.15;
+  }
+}
+
+/* グラスモーフィズム専用のぼかし効果 */
+@supports (backdrop-filter: blur(40px)) or (-webkit-backdrop-filter: blur(40px)) {
+  .container {
+    background: rgba(15, 23, 42, 0.3);
+  }
+  
+  .header {
+    background: rgba(30, 41, 59, 0.25);
+  }
+  
+  .sectionCard {
+    background: rgba(30, 41, 59, 0.2);
   }
 }

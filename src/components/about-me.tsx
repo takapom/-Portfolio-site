@@ -2,10 +2,10 @@ import styles from "./about-me.module.css"
 
 export default function AboutMe() {
   const affiliations = [
-    "大和大学 3年 情報学部",
+    "大和大学 情報学部",
     "Tech Uni",
-    "ONE CAREER",
-    "Omluc",
+    "ONE CAREER Inc",
+    "Omluc Inc",
   ]
 
   const interests = [

@@ -2,12 +2,34 @@
 
 import { useState } from "react"
 import styles from "./tech-stack.module.css"
+import { 
+  SiPython, 
+  SiTypescript, 
+  SiJavascript, 
+  SiOpenjdk,
+  SiGo,
+  SiReact,
+  SiNextdotjs,
+  SiMysql,
+  SiFirebase,
+  SiGit,
+  SiDocker,
+  SiGithubactions,
+  SiFigma,
+  SiHtml5,
+  SiCss3,
+  SiRubyonrails,
+  SiDjango,
+  SiSupabase
+} from "react-icons/si"
+import { VscCode } from "react-icons/vsc"
+import { IconType } from "react-icons"
 
 type TechCategory = "languages" | "frontend" | "backend" | "tools" | "other"
 
 type Technology = {
   name: string
-  icon: string
+  icon: IconType
   proficiency: number // 1-5
   category: TechCategory
   description?: string
@@ -21,35 +43,35 @@ export default function TechStack() {
     // プログラミング言語
     {
       name: "Python",
-      icon: "🐍",
+      icon: SiPython,
       proficiency: 4,
       category: "languages",
       description: "Djangoでバックエンド開発に使用",
     },
     {
       name: "TypeScript",
-      icon: "📘",
+      icon: SiTypescript,
       proficiency: 4,
       category: "languages",
       description: "型安全な開発のための主要言語として使用",
     },
     {
       name: "JavaScript",
-      icon: "📒",
+      icon: SiJavascript,
       proficiency: 4,
       category: "languages",
       description: "Webフロントエンド開発の基盤として使用",
     },
     {
       name: "Java",
-      icon: "☕",
+      icon: SiOpenjdk,
       proficiency: 2,
       category: "languages",
       description: "バックエンド開発とインターンでの使用経験",
     },
     {
       name: "Go",
-      icon: "😍",
+      icon: SiGo,
       proficiency: 3,
       category: "languages",
       description: "個人開発とインターンでの使用経験",
@@ -57,59 +79,94 @@ export default function TechStack() {
 
     // フロントエンド
     {
-      name: "HTML/CSS",
-      icon: "🎨",
+      name: "HTML",
+      icon: SiHtml5,
       proficiency: 3,
       category: "frontend",
-      description: "Webページの構造とスタイリング",
+      description: "Webページの構造とマークアップ",
+    },
+    {
+      name: "CSS",
+      icon: SiCss3,
+      proficiency: 3,
+      category: "frontend",
+      description: "Webページのスタイリング",
     },
     {
       name: "JavaScript",
-      icon: "📒",
+      icon: SiJavascript,
       proficiency: 3,
       category: "frontend",
       description: "Webフロントエンド開発の基盤として使用",
     },
     {
       name: "TypeScript",
-      icon: "📘",
+      icon: SiTypescript,
       proficiency: 4,
       category: "frontend",
       description: "型安全な開発のための主要言語として使用",
     },
     {
       name: "React",
-      icon: "⚛️",
+      icon: SiReact,
       proficiency: 3,
       category: "frontend",
       description: "UIコンポーネント構築の主要ライブラリ",
     },
     {
       name: "Next.js",
-      icon: "▲",
+      icon: SiNextdotjs,
       proficiency: 3,
       category: "frontend",
       description: "個人開発とインターンでの使用",
     },
 
     // バックエンド
-    { name: "MySQL", icon: "🐘", proficiency: 3, category: "backend", description: "リレーショナルデータベース" },
+    {
+      name: "Django",
+      icon: SiDjango,
+      proficiency: 3,
+      category: "backend",
+      description: "Python製の高レベルWebフレームワーク",
+    },
+    {
+      name: "Go",
+      icon: SiGo,
+      proficiency: 3,
+      category: "backend",
+      description: "高速な並行処理に優れたバックエンド開発",
+    },
+    {
+      name: "Ruby on Rails",
+      icon: SiRubyonrails,
+      proficiency: 2,
+      category: "backend",
+      description: "Ruby製のWebアプリケーションフレームワーク",
+    },
+    { name: "MySQL", icon: SiMysql, proficiency: 3, category: "backend", description: "リレーショナルデータベース" },
     {
       name: "Firebase",
-      icon: "🔥",
+      icon: SiFirebase,
       proficiency: 3,
       category: "backend",
       description: "Googleのアプリ開発プラットフォーム",
     },
+    {
+      name: "Supabase",
+      icon: SiSupabase,
+      proficiency: 3,
+      category: "backend",
+      description: "オープンソースのFirebase代替サービス",
+    },
 
     // ツール
-    { name: "Git", icon: "🔄", proficiency: 5, category: "tools", description: "バージョン管理システム" },
-    { name: "Docker", icon: "🐳", proficiency: 3, category: "tools", description: "コンテナ化プラットフォーム" },
-    { name: "GitHub Actions", icon: "🔄", proficiency: 3, category: "tools", description: "CI/CDパイプライン" },
-    { name: "VS Code", icon: "📝", proficiency: 5, category: "tools", description: "主要コードエディタ" },
+    { name: "Git", icon: SiGit, proficiency: 5, category: "tools", description: "バージョン管理システム" },
+    { name: "Docker", icon: SiDocker, proficiency: 3, category: "tools", description: "コンテナ化プラットフォーム" },
+    { name: "GitHub Actions", icon: SiGithubactions, proficiency: 3, category: "tools", description: "CI/CDパイプライン" },
+    { name: "VS Code", icon: VscCode, proficiency: 5, category: "tools", description: "主要コードエディタ" },
 
     // その他
-    { name: "Figma", icon: "🎯", proficiency: 3, category: "other", description: "UIデザインツール" },
+    { name: "Figma", icon: SiFigma, proficiency: 3, category: "other", description: "UIデザインツール" },
   ]
 
   const categories = [
@@ -156,33 +213,43 @@ export default function TechStack() {
       </div>
 
       <div className={styles.techGrid}>
-        {filteredTech.map((tech, index) => (
-          <div
-            key={`${tech.name}-${index}`}
-            className={`${styles.techItem} ${activeTech === tech.name ? styles.activeTech : ""}`}
-            onClick={() => handleTechClick(tech.name)}
-          >
-            <div className={styles.techIcon}>{tech.icon}</div>
-            <div className={styles.techInfo}>
-              <div className={styles.techName}>{tech.name}</div>
-              <div className={styles.proficiencyBar}>
-                {[1, 2, 3, 4, 5].map((level) => (
-                  <div
-                    key={level}
-                    className={`${styles.proficiencyLevel} ${level <= tech.proficiency ? styles.filled : ""}`}
-                  ></div>
-                ))}
+        {filteredTech.map((tech, index) => {
+          const IconComponent = tech.icon
+          return (
+            <div
+              key={`${tech.name}-${index}`}
+              className={`${styles.techItem} ${activeTech === tech.name ? styles.activeTech : ""}`}
+              onClick={() => handleTechClick(tech.name)}
+            >
+              <div className={styles.techIcon}>
+                <IconComponent />
+              </div>
+              <div className={styles.techInfo}>
+                <div className={styles.techName}>{tech.name}</div>
+                <div className={styles.proficiencyBar}>
+                  {[1, 2, 3, 4, 5].map((level) => (
+                    <div
+                      key={level}
+                      className={`${styles.proficiencyLevel} ${level <= tech.proficiency ? styles.filled : ""}`}
+                    ></div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
 
       {activeTech && (
         <div className={styles.techDetails}>
           <div className={styles.techDetailsContent}>
             <div className={styles.techDetailsHeader}>
-              <span className={styles.techDetailsIcon}>{getActiveTech()?.icon}</span>
+              <span className={styles.techDetailsIcon}>
+                {getActiveTech()?.icon && (() => {
+                  const IconComponent = getActiveTech()!.icon
+                  return <IconComponent />
+                })()}
+              </span>
               <h3 className={styles.techDetailsName}>{getActiveTech()?.name}</h3>
             </div>
             <p className={styles.techDetailsDescription}>{getActiveTech()?.description}</p>

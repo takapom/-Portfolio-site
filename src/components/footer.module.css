@@ -1,79 +1,130 @@
 .footer {
-    background-color: #1e1e1f;
-    color: #1e293b;
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: var(--color-text-secondary);
+  padding: 2.5rem 0;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 4rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.socialLink {
+  color: var(--color-text-muted);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(30, 41, 59, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.socialLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(129, 140, 248, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.socialLink:hover {
+  color: var(--color-text-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(96, 165, 250, 0.3);
+  border-color: rgba(96, 165, 250, 0.3);
+}
+
+.socialLink:hover::before {
+  opacity: 1;
+}
+
+.socialLink:nth-child(1):hover {
+  background: rgba(51, 51, 51, 0.4);
+  border-color: rgba(51, 51, 51, 0.5);
+}
+
+.socialLink:nth-child(2):hover {
+  background: rgba(29, 161, 242, 0.2);
+  border-color: rgba(29, 161, 242, 0.5);
+}
+
+.socialLink:nth-child(3):hover {
+  background: linear-gradient(45deg, rgba(240, 148, 51, 0.3), rgba(188, 24, 136, 0.3));
+  border-color: rgba(240, 148, 51, 0.5);
+}
+
+.socialLink:nth-child(4):hover {
+  background: rgba(96, 165, 250, 0.2);
+  border-color: rgba(96, 165, 250, 0.5);
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .socialLinks {
+    order: 2;
+  }
+
+  .copyright {
+    order: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
     padding: 2rem 0;
-    width: 100%; /* ← 画面いっぱいに広がるように */
-    border-top: 1px solid #e2e8f0;
   }
   
   .container {
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 1.5rem;
   }
   
   .socialLinks {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
+    gap: 1rem;
   }
   
   .socialLink {
-    color: #64748b;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    border-radius: 12px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 44px;
+    height: 44px;
   }
-  
-  .socialLink:hover {
-    color: #ffffff;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  }
-  
-  .socialLink:nth-child(1):hover {
-    background-color: #333333; /* GitHub */
-  }
-  
-  .socialLink:nth-child(2):hover {
-    background-color: #1da1f2; /* Twitter/X */
-  }
-  
-  .socialLink:nth-child(3):hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram */
-  }
-  
-  .socialLink:nth-child(4):hover {
-    background-color: #0077b5; /* Blog - using LinkedIn blue as an example */
-  }
-  
-  .copyright {
-    font-size: 0.875rem;
-    color: #64748b;
-  }
-  
-  @media (min-width: 768px) {
-    .container {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-  
-    .socialLinks {
-      order: 2;
-    }
-  
-    .copyright {
-      order: 1;
-    }
-  }
-  
+}

@@ -21,7 +21,7 @@ export default function Internship() {
       period: '2025年8月',
       description: 'GoとReactでの既存システムのパフォーマンスチューニング。レスポンス時間を40%改善',
       technologies: ['Go', 'React', 'PostgreSQL', 'Redis', 'GraphQL'],
-    },    
+    },
     {
       company: 'GMOインターネット',
       slug: 'gmo',
@@ -37,7 +37,7 @@ export default function Internship() {
       technologies: ['Ruby on Rails', 'React', 'PostgreSQL', 'Docker', 'RSpec'],
     },
     {
-      company: 'ラクス',
+      company: 'Rakus Inc',
       slug: 'rakus',
       period: '2025年8月',
       description: 'Vue.jsとNode.jsを用いたチーム開発。アジャイル開発手法を実践',
@@ -78,6 +78,27 @@ export default function Internship() {
       description: '課題解決型チーム開発。求人検索サービスの新機能開発',
       technologies: ['Python', 'Django', 'Elasticsearch', 'Docker', 'GitHub Actions'],
     },
+    {
+      company: 'Buysell',
+      slug: 'standby',
+      period: '2025年8月',
+      description: 'バイブコーディングの理解とGolangのアーキテクチャ設計',
+      technologies: ['TypeScript', 'Next.js', 'Golang'],
+    },    
+    {
+      company: 'エキサイト',
+      slug: 'standby',
+      period: '2025年10月 - 2025年11月',
+      description: '既存サービスのKurotenでバックエンド開発',
+      technologies: ['TypeScript', 'Next.js', 'Golang', 'MySQL', 'GraphQL', 'GitHub Actions', 'AWS'],
+    },    
+    {
+      company: 'ONE CAREER',
+      slug: 'standby',
+      period: '2025年10月 - 2026年2月',
+      description: 'ONE CAREERのサービスのバックエンド開発',
+      technologies: ['Ruby on Rails', 'Vue.js', 'MySQL', 'GitHub Actions', 'AWS'],
+    },
   ];
 
   return (
@@ -89,7 +110,7 @@ export default function Internship() {
         </h1>
         <p className={styles.subtitle}>実践的な開発経験と技術スキルの向上</p>
       </div>
-      
+
       <div className={styles.timeline}>
         {internships.map((internship, index) => (
           <div
@@ -110,10 +131,10 @@ export default function Internship() {
                   <span className={styles.period}>{internship.period}</span>
                 </div>
               </div>
-              
+
               <div className={styles.cardBody}>
                 <p className={styles.description}>{internship.description}</p>
-                
+
                 <div className={styles.technologies}>
                   <h3 className={styles.techTitle}>使用技術</h3>
                   <div className={styles.techTags}>
@@ -125,7 +146,7 @@ export default function Internship() {
                   </div>
                 </div>
               </div>
-              
+
               <div className={styles.cardFooter}>
                 <button className={styles.detailButton}>
                   <span>詳細を見る</span>
