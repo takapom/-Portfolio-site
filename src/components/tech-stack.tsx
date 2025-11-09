@@ -20,7 +20,9 @@ import {
   SiCss3,
   SiRubyonrails,
   SiDjango,
-  SiSupabase
+  SiSupabase,
+  SiOpenai,
+  SiAmazon
 } from "react-icons/si"
 import { VscCode } from "react-icons/vsc"
 import { IconType } from "react-icons"
@@ -36,7 +38,6 @@ type Technology = {
 }
 
 export default function TechStack() {
-  const [activeCategory, setActiveCategory] = useState<TechCategory | "all">("all")
   const [activeTech, setActiveTech] = useState<string | null>(null)
 
   const technologies: Technology[] = [
@@ -166,22 +167,29 @@ export default function TechStack() {
     { name: "VS Code", icon: VscCode, proficiency: 5, category: "tools", description: "主要コードエディタ" },
 
     // その他
-    { name: "Figma", icon: SiFigma, proficiency: 3, category: "other", description: "UIデザインツール" },
+     { name: "Figma", icon: SiFigma, proficiency: 3, category: "other", description: "UIデザインツール" },
+     { name: "Dify", icon: SiOpenai, proficiency: 3, category: "other", description: "AIアプリ開発プラットフォーム" },
+     { name: "AWS CDK", icon: SiAmazon, proficiency: 2, category: "other", description: "Infrastructure as Code。AWSリソースをTypeScriptで定義" },
   ]
 
-  const categories = [
-    { id: "all", name: "All" },
-    { id: "languages", name: "Languages" },
-    { id: "frontend", name: "Frontend" },
-    { id: "backend", name: "Backend" },
-    { id: "tools", name: "Tools" },
-    { id: "other", name: "Other" },
-  ]
-
-  const filteredTech =
-    activeCategory === "all"
-      ? technologies.filter((tech, index, self) => index === self.findIndex((t) => t.name === tech.name))
-      : technologies.filter((tech) => tech.category === activeCategory)
+  // 表示用に「フロントエンド / バックエンド / その他」に再編成
+  // 「その他」はフロント/バックエンドに重複する技術名を除外
+  const groupedFrontend = technologies.filter((t) => t.category === "frontend")
+  const groupedBackend = technologies.filter((t) => t.category === "backend")
+  const excludedNames = new Set<string>([
+    ...groupedFrontend.map((t) => t.name),
+    ...groupedBackend.map((t) => t.name),
+  ])
+  const groupedOther = technologies.filter(
+    (t) =>
+      (t.category === "languages" || t.category === "tools" || t.category === "other") &&
+      !excludedNames.has(t.name)
+  )
+  const grouped = {
+    frontend: groupedFrontend,
+    backend: groupedBackend,
+    other: groupedOther,
+  }
 
   const handleTechClick = (techName: string) => {
     if (activeTech === techName) {
@@ -200,44 +208,96 @@ export default function TechStack() {
       <h2 className={styles.sectionTitle}>Tech Stack</h2>
       <div className={styles.sectionDivider}></div>
 
-      <div className={styles.categoryNav}>
-        {categories.map((category) => (
-          <button
-            key={category.id}
-            className={`${styles.categoryButton} ${activeCategory === category.id ? styles.active : ""}`}
-            onClick={() => setActiveCategory(category.id as TechCategory | "all")}
-          >
-            {category.name}
-          </button>
-        ))}
-      </div>
+      <div className={styles.categoryGrid}>
+        <section className={styles.categoryCard}>
+          <header className={styles.categoryHeader}>
+            <span className={`${styles.categoryBadge} ${styles.frontendBadge}`}>🎨</span>
+            <h3 className={styles.categoryTitle}>フロントエンド</h3>
+          </header>
+          <div className={styles.chipGrid}>
+            {grouped.frontend.map((tech) => {
+              const IconComponent = tech.icon
+              return (
+                <button
+                  key={tech.name}
+                  className={styles.chip}
+                  onClick={() => handleTechClick(tech.name)}
+                  aria-label={`${tech.name} の詳細`}
+                >
+                  <span className={styles.chipIcon}>
+                    <IconComponent />
+                  </span>
+                  <span className={styles.chipLabel}>{tech.name}</span>
+                  <span className={styles.chipLevels} aria-hidden="true">
+                    {[1, 2, 3, 4, 5].map((level) => (
+                      <i key={level} className={`${styles.chipLevel} ${level <= tech.proficiency ? styles.filled : ""}`} />
+                    ))}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+        </section>
 
-      <div className={styles.techGrid}>
-        {filteredTech.map((tech, index) => {
-          const IconComponent = tech.icon
-          return (
-            <div
-              key={`${tech.name}-${index}`}
-              className={`${styles.techItem} ${activeTech === tech.name ? styles.activeTech : ""}`}
-              onClick={() => handleTechClick(tech.name)}
-            >
-              <div className={styles.techIcon}>
-                <IconComponent />
-              </div>
-              <div className={styles.techInfo}>
-                <div className={styles.techName}>{tech.name}</div>
-                <div className={styles.proficiencyBar}>
-                  {[1, 2, 3, 4, 5].map((level) => (
-                    <div
-                      key={level}
-                      className={`${styles.proficiencyLevel} ${level <= tech.proficiency ? styles.filled : ""}`}
-                    ></div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )
-        })}
+        <section className={styles.categoryCard}>
+          <header className={styles.categoryHeader}>
+            <span className={`${styles.categoryBadge} ${styles.backendBadge}`}>🛠</span>
+            <h3 className={styles.categoryTitle}>バックエンド</h3>
+          </header>
+          <div className={styles.chipGrid}>
+            {grouped.backend.map((tech) => {
+              const IconComponent = tech.icon
+              return (
+                <button
+                  key={tech.name}
+                  className={styles.chip}
+                  onClick={() => handleTechClick(tech.name)}
+                  aria-label={`${tech.name} の詳細`}
+                >
+                  <span className={styles.chipIcon}>
+                    <IconComponent />
+                  </span>
+                  <span className={styles.chipLabel}>{tech.name}</span>
+                  <span className={styles.chipLevels} aria-hidden="true">
+                    {[1, 2, 3, 4, 5].map((level) => (
+                      <i key={level} className={`${styles.chipLevel} ${level <= tech.proficiency ? styles.filled : ""}`} />
+                    ))}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+        </section>
+
+        <section className={styles.categoryCard}>
+          <header className={styles.categoryHeader}>
+            <span className={`${styles.categoryBadge} ${styles.otherBadge}`}>✨</span>
+            <h3 className={styles.categoryTitle}>その他</h3>
+          </header>
+          <div className={styles.chipGrid}>
+            {grouped.other.map((tech) => {
+              const IconComponent = tech.icon
+              return (
+                <button
+                  key={tech.name}
+                  className={styles.chip}
+                  onClick={() => handleTechClick(tech.name)}
+                  aria-label={`${tech.name} の詳細`}
+                >
+                  <span className={styles.chipIcon}>
+                    <IconComponent />
+                  </span>
+                  <span className={styles.chipLabel}>{tech.name}</span>
+                  <span className={styles.chipLevels} aria-hidden="true">
+                    {[1, 2, 3, 4, 5].map((level) => (
+                      <i key={level} className={`${styles.chipLevel} ${level <= tech.proficiency ? styles.filled : ""}`} />
+                    ))}
+                  </span>
+                </button>
+              )
+            })}
+          </div>
+        </section>
       </div>
 
       {activeTech && (
